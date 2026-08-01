@@ -16,7 +16,8 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&fast_pg_dn>, <&fast_pg_up>;
- // Inverted: CW = down, CCW = up
+
+            // Inverted: CW = down, CCW = up
         };
 
         // Fast page up macro - sends 20 PG_UP commands
@@ -59,6 +60,15 @@
     macros {
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        plus {
+            bindings = <&kp RS(EQUAL)>;
+            key-positions = <24 23>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -81,7 +91,7 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp C_VOLUME_UP C_VOL_DN>,
+                <&inc_dec_kp C_VOL_DN C_VOLUME_UP>,
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
