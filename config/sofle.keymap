@@ -52,8 +52,8 @@
         compatible = "zmk,conditional-layers";
 
         adjust_layer {
-            if-layers = <LOWER RAISE>;
-            then-layer = <ADJUST>;
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 
@@ -64,8 +64,8 @@
         compatible = "zmk,combos";
 
         plus {
-            bindings = <&kp RS(EQUAL)>;
-            key-positions = <24 23>;
+            bindings = <&kp EQUAL>;
+            key-positions = <22 23>;
         };
     };
 
@@ -83,11 +83,11 @@
             //                | GUI  | ALT  | CTRL | LOWER|  SPACE |  | ENTER | RAISE|  ALT  | CTRL  | GUI  |
 
             bindings = <
-&kp ESC    &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                            &kp N6  &kp N7    &kp N8     &kp N9    &kp N0     &kp MINUS
-&kp TAB    &kp Q   &kp W     &kp E     &kp R      &kp T                             &kp Y   &kp U     &kp I      &kp O     &kp P      &kp BSPC
-&kp LSHFT  &kp A   &kp S     &kp D     &kp F      &kp G                             &kp H   &kp J     &kp K      &kp L     &kp SEMI   &kp SQT
-&kp LCTRL  &kp Z   &kp X     &kp C     &kp V      &kp B   &kp C_MUTE    &kp C_PLAY  &kp N   &kp M     &kp COMMA  &kp DOT   &kp SLASH  &kp BSLH
-                   &kp LGUI  &kp LALT  &kp LCTRL  &mo 1   &kp SPACE     &kp ENTER   &mo 2   &kp RALT  &kp RCTRL  &kp RGUI
+&kp ESC    &kp N1  &kp N2    &kp N3    &kp N4            &kp N5                              &kp N6  &kp N7      &kp N8     &kp N9    &kp N0     &kp MINUS
+&kp TAB    &kp Q   &kp W     &kp E     &kp R             &kp T                               &kp Y   &kp U       &kp I      &kp O     &kp P      &kp BSPC
+&kp LSHFT  &kp A   &kp S     &kp D     &kp F             &kp G                               &kp H   &kp J       &kp K      &kp L     &kp SEMI   &kp SQT
+&kp LCTRL  &kp Z   &kp X     &kp C     &kp V             &kp B   &kp C_MUTE    &kp CAPSLOCK  &kp N   &kp M       &kp COMMA  &kp DOT   &kp SLASH  &kp BSLH
+                   &kp LGUI  &kp LALT  &kp LEFT_CONTROL  &mo 1   &kp SPACE     &kp ENTER     &mo 2   &kp LSHIFT  &kp RCTRL  &kp RGUI
             >;
 
             sensor-bindings =
@@ -107,14 +107,16 @@
             //               | mo2 | alt  | SHF  | DEL  |  BSPC  |  | ENTER | SPACE|       |  0    |      |
 
             bindings = <
-&kp F1     &kp F2          &kp F3    &kp F4     &kp F5           &kp F6                                  &kp F7     &kp F8  &kp F9  &kp F10  &kp F11    &kp F12
-&kp LGUI   &trans          &kp UP    &trans     &rgb_ug RGB_TOG  &rgb_ug RGB_EFF                         &trans     &kp N1  &kp N2  &kp N3   &kp PG_UP  &kp PG_DN
-&kp ESC    &kp LEFT        &kp DOWN  &kp RIGHT  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI                         &trans     &kp N4  &kp N5  &kp N6   &kp HOME   &kp END
-&kp PSCRN  &studio_unlock  &trans    &trans     &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &trans      &trans     &trans     &kp N7  &kp N8  &kp N9   &trans     &studio_unlock
-                           &mo 2     &kp LALT   &kp LSHFT        &kp DEL          &kp BSPC    &kp ENTER  &kp SPACE  &trans  &kp N0  &trans
+&kp ESC    &kp F1          &kp F2    &kp F3     &kp F4           &kp F5                                  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10   &kp F11
+&kp LGUI   &trans          &kp UP    &trans     &rgb_ug RGB_TOG  &rgb_ug RGB_EFF                         &trans  &kp N1  &kp N2  &kp N3  &kp HOME  &kp F12
+&kp ESC    &kp LEFT        &kp DOWN  &kp RIGHT  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI                         &trans  &kp N4  &kp N5  &kp N6  &kp END   &kp CLEAR
+&kp PSCRN  &studio_unlock  &trans    &trans     &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &trans      &trans     &trans  &kp N7  &kp N8  &kp N9  &trans    &studio_unlock
+                           &mo 2     &kp LALT   &kp LSHFT        &kp DEL          &kp BSPC    &kp ENTER  &trans  &trans  &kp N0  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &fast_pg_encoder>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>,
+                <&inc_dec_kp LEFT RIGHT>;
         };
 
         raise_layer {
