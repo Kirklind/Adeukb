@@ -46,8 +46,8 @@
 };
 
 // Soft Off: used on the encoder push-buttons on LOWER and ADJUST only.
-// A short press is sufficient; the wake-up source is configured in the
-// nice!nano overlay so the same encoder button can wake the keyboard.
+// A short press is sufficient. Soft Off is exited using the physical reset
+// button on each half of the split keyboard.
 &soft_off {
     hold-time-ms = <0>;
 };
