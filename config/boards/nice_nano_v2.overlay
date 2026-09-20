@@ -39,15 +39,3 @@
         zmk,underglow = &led_strip;
     };
 };
-
-/*
- * Reset-only wake from Soft Off.
- *
- * The standard Sofle matrix kscan has `wakeup-source`, which allows matrix
- * keys (including the encoder push switches) to wake the nRF52840 from
- * Soft Off. Remove that property so the matrix cannot be a Soft Off wake
- * source. The physical RESET button remains able to wake the MCU.
- */
-&kscan0 {
-    /delete-property/ wakeup-source;
-};
