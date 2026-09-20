@@ -173,3 +173,10 @@
         };
     };
 };
+
+
+// Do not allow the Sofle key matrix (including encoder push switches) to wake
+// the keyboard from Soft Off. The physical RESET button is the wake source.
+&kscan0 {
+    /delete-property/ wakeup-source;
+};
